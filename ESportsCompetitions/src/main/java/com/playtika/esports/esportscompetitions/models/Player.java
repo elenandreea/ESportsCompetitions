@@ -1,5 +1,6 @@
 package com.playtika.esports.esportscompetitions.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.playtika.esports.esportscompetitions.models.enums.LevelType;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,8 +19,9 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-
-   // private User user;
+    @OneToOne
+    @JsonIgnore
+    private User user;
 
     private volatile boolean isPlaying;
 
